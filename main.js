@@ -1,4 +1,5 @@
 // Travail avec Loris => (longueur à det. = nb cartes -1)*40
+//test
 
 // let hauteur = window.innerHeight/1.2 ou 600 ?
 let hauteur = 600
