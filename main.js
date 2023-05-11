@@ -33,13 +33,58 @@ kaboom({
     canvas: document.querySelector("#monCanvas"),
 })
 function chargerLesSprites(){
+	// autres
+	loadSprite("card back", "/sprites/autres/card-back.png")
+	// affiches
 	loadSprite("Broken Blossoms", "/sprites/affiches/Broken_blossoms_poster200.png")
 	loadSprite("Les Quatre Cents Coups", "/sprites/affiches/Quatre_coups.jpg")
-	loadSprite("card back", "/sprites/card-back.png")
-	//loadSprite("wood", "/sprites/wood.jpg")
 	loadSprite("A bout de souffle", "/sprites/affiches/a-bout-de-souffle-godard.jpg")
+	loadSprite("L'arroseur arrosé", "sprites/affiches/arroseurArrose1895.jpg")
+	loadSprite("Le Voyage dans la Lune","sprites/affiches/lune1902.jpg")
+	loadSprite("The Great Train Robbery","sprites/affiches/robbery1903.jpg")
+	loadSprite("L'Assassinat du Duc de Guise", "sprites/affiches/ducDeGuise1908.jpg")
+	loadSprite("The Lonedale Operator","sprites/affiches/lonedaleOperator1911 (1).jpg")
+	loadSprite("The Birth of a Nation","sprites/affiches/birthOfANation1915 (1).jpg")
+	loadSprite("Work","sprites/affiches/work1915 (1).jpg")
+	loadSprite("Intolerance","sprites/affiches/intolerance_1916 (1) (1).jpg")
+	loadSprite("Shoulder Arms","sprites/affiches/shoulderArms1918.png")
+	loadSprite("Foolish Wives","sprites/affiches/foolishWifes1922.jpg")
+	loadSprite("Nosferatu","sprites/affiches/nosferatu1922.jpg")
+	loadSprite("A Woman of Paris","sprites/affiches/womanOfParis1923.jpg")
+	loadSprite("Coeur fidèle","sprites/affiches/coeurFidel1923.jpg")
+	loadSprite("La Roue","sprites/affiches/laRoue1923.jpg")
+	loadSprite("Der Letzte Mann","sprites/affiches/letzteMan1924.png")
+	loadSprite("Les Aventures extraordinaires de Mister West au pays des bolcheviks","sprites/affiches/bolcheviks1924.jpg")
+	loadSprite("L'Inhumaine","sprites/affiches/inhumaine1924.jpg")
+	loadSprite("Sherlock Jr.","sprites/affiches/sherlockJr1924.jpg")
+	loadSprite("La Grève","sprites/affiches/greve1925.jpg")
+	loadSprite("La Glace à trois faces","sprites/affiches/glaceTroisFaces1927.jpg")
+	loadSprite("Metropolis","sprites/affiches/metropolis1927.jpg")
+	loadSprite("Blackmail","sprites/affiches/blackmail1929.jpg")
+	loadSprite("L'Homme à la caméra","sprites/affiches/hommeCamera1929.jpg")
+	loadSprite("Tagebuch einer Verlorenen","sprites/affiches/tagebuch1929.jpg")
+	loadSprite("Sous les toits de Paris","sprites/affiches/toitsDeParis1930.jpg")
+	loadSprite("A nous la liberté !","sprites/affiches/aNousLaLiberte1931.jpg")
+	loadSprite("Scarface","sprites/affiches/scarface1932.jpg")
+	loadSprite("Les Temps modernes","sprites/affiches/modernTimes1936.jpg")
+	loadSprite("Gueule d'amour","sprites/affiches/gueuleDAmour1937 (1) (1).jpg")
+	loadSprite("La Bête humaine","sprites/affiches/beteHumaine1938.jpg")
+	loadSprite("Le Dernier tournant","sprites/affiches/dernierTournant1939.jpg")
+	loadSprite("Le Jour se lève","sprites/affiches/jourSeLeve1939.jpg")
+	loadSprite("Douce","sprites/affiches/douce1943.jpg")
+	loadSprite("Double Indemnity","sprites/affiches/doubleIndemnity1944.jpg")
+	loadSprite("Spellbound","sprites/affiches/Spellbound_original (1).jpg")
+	loadSprite("Les Enfants du Paradis","sprites/affiches/vignette_les-enfants-du-paradis (1).jpg")
+	loadSprite("The Postman Always Rings Twice","sprites/affiches/PostmanAlwaysPoster1946 (1).jpg")
+	loadSprite("Dark Passage","sprites/affiches/Dark_Passage_(film)_poster (1).jpg")
+	loadSprite("La terra trema","sprites/affiches/Terratremaposter (1).jpg")
+	loadSprite("Printemps tardif","sprites/affiches/printempsTardif (1).jpg")
+	loadSprite("Une si jolie petite plage","sprites/affiches/Petiteplage1949 (1).jpg")
+	loadSprite("Umberto D.","sprites/affiches/UmbertoD (1).jpg")
+	loadSprite("Les Contes de la lune vague après la pluie","sprites/affiches/contesDeLaLuneVague (1).jpg")
 }
 chargerLesSprites()
+
 
 
 function drag() {
@@ -60,6 +105,7 @@ function drag() {
 				curDraggin = this
 				offset = mousePos().sub(this.pos)
 				
+				
 		})
 		},
 		// "update" is a lifecycle method gets called every frame the obj is in scene
@@ -73,30 +119,82 @@ function drag() {
 
 }
 
+
 // drop
 onMouseRelease(() => {
 	// si quelque chose est en train d'être déplacé, la classe set est données aux cartes posées dans la timeline
 	if(curDraggin && curDraggin.class !== "set"){
 // et si la pos en Y est dans la timeline
 		if(curDraggin.pos.y > 350){
-			//if(curDraggin.pos.x < largeur/2 && curDraggin){
-			curDraggin.pos.y = 468;
-			curDraggin.pos.x = (largeurTimeline+curDraggin.width)/2;
-			tirerUneCarte();
-			score++;
-			curDraggin.class = "set"
-			console.log(curDraggin)
-		}
-		//else(){score-=10}
 
+
+
+
+// si c'est la première carte que l'on pose
+			if(compteurDeCartesDansLaTimeline == 0){
+				curDraggin.pos.y = 468;
+				curDraggin.pos.x = (largeurTimeline+curDraggin.width)/2;
+				console.log("12 : ", tabCartes[0].annee)
+			}
+			else{
+// si c'est la deuxième carte que l'on pose
+			if(compteurDeCartesDansLaTimeline == 1){
+				if(curDraggin.annee>=tabCartes[0].annee && curDraggin.pos.x>tabCartes[0].pos.x){
+					curDraggin.pos.y = 468;
+					curDraggin.pos.x = (largeurTimeline+curDraggin.width)/2 +75;
+					tabCartes[0].pos.x = (largeurTimeline+curDraggin.width)/2 -75;
+					console.log("Annee :", ...tabCartes.map(carte => carte.annee))
+				}
+				else if(curDraggin.annee<=tabCartes[0].annee && curDraggin.pos.x<tabCartes[0].pos.x){
+					curDraggin.pos.y = 468;
+					curDraggin.pos.x = (largeurTimeline+curDraggin.width)/2 -75;
+					tabCartes[0].pos.x = (largeurTimeline+curDraggin.width)/2 +75;
+					console.log("Annee :", ...tabCartes.map(carte => carte.annee))
+				}
+// Pour l'instant c'est score -10 (juste pour avoir un retour visuel) mais il faudra faire un game-over ou un systeme de vies
+				else{score-=10}
+			}
+			else if(compteurDeCartesDansLaTimeline == 2){
+				if(curDraggin.annee>=tabCartes[0].annee && curDraggin.annee<=tabCartes[1].annee && curDraggin.pos.x>tabCartes[0].pos.x && curDraggin.pos.x<tabCartes[1].pos.x){
+					curDraggin.pos.y = 468;
+					curDraggin.pos.x = (largeurTimeline+curDraggin.width)/2;
+					tabCartes[0].pos.x = (largeurTimeline+curDraggin.width)/2 -150;
+					tabCartes[1].pos.x = (largeurTimeline+curDraggin.width)/2 +150;
+					console.log("Annee :", ...tabCartes.map(carte => carte.annee))
+				}
+				else if(curDraggin.annee<=tabCartes[0].annee && curDraggin.pos.x<tabCartes[0].pos.x){
+					curDraggin.pos.y = 468;
+					curDraggin.pos.x = (largeurTimeline+curDraggin.width)/2 -150;
+					tabCartes[0].pos.x = (largeurTimeline+curDraggin.width)/2;
+					tabCartes[1].pos.x = (largeurTimeline+curDraggin.width)/2 +150;
+					console.log("Annee :", ...tabCartes.map(carte => carte.annee))
+				}
+				else if(curDraggin.annee>=tabCartes[1].annee && curDraggin.pos.x>tabCartes[1].pos.x){
+					curDraggin.pos.y = 468;
+					curDraggin.pos.x = (largeurTimeline+curDraggin.width)/2 +150;
+					tabCartes[0].pos.x = (largeurTimeline+curDraggin.width)/2 - 150;
+					tabCartes[1].pos.x = (largeurTimeline+curDraggin.width)/2;
+					console.log("Annee :", ...tabCartes.map(carte => carte.annee))
+				}
+
+				// Pour l'instant c'est score -10 (juste pour avoir un retour visuel) mais il faudra faire un game-over ou un systeme de vies
+				else{score-=10}
+			}
+		}
+		console.log("bip")
+		tirerUneCarte();
+		score++;
+		compteurDeCartesDansLaTimeline++
+		curDraggin.class = "set"
+
+}
 		else{curDraggin.pos.y = 200; curDraggin.pos.x = positionDeckX}			
-	
+
 	}
 		setCursor("pointer")
 		curDraggin = null
-		console.log(tabCartes)
-		console.log("lachée")
-	//tabCartes[0].pos.y =100
+		console.log("tab cartes : ",tabCartes)
+
 })
 
 
@@ -121,6 +219,7 @@ function tirerUneCarte(){
 	let indexActuelDansTabAleatoire = tabAleatoire[compteurDeCartesPiochees]
 	let derniereCartePiochee = donnees[indexActuelDansTabAleatoire]
 	compteurDeCartesPiochees++
+	//console.log("année: ",derniereCartePiochee.annee)
 	
 	let NouvelleCarte = add([
 		sprite(`${derniereCartePiochee.nom}`),
@@ -130,6 +229,7 @@ function tirerUneCarte(){
 		z(2),
 		drag()
 	])
+	NouvelleCarte.annee = derniereCartePiochee.annee
 	tabCartes.push(NouvelleCarte)
     return derniereCartePiochee;
 }
@@ -144,7 +244,7 @@ const timeline = add([
     rect(largeurTimeline, hauteurTimeline),
     outline(4),
 	z(0),
-    color(0, 0, 255),
+    color(255,140,0),
     anchor("center"),
     "timeline"
 ]);
@@ -182,7 +282,7 @@ const deck = add([
 ])
 
 
-
+//console.log("tabAleatoire : ",tabAleatoire)
 
 
 //fermeture de d3
