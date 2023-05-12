@@ -1,5 +1,5 @@
 // Travail avec Loris => (longueur à det. = nb cartes -1)*40
-//test
+//	console.log("dans la TL",tabCartesDanslaTimeline)
 
 // let hauteur = window.innerHeight/1.2 ou 600 ?
 let hauteur = 600
@@ -14,6 +14,7 @@ let positionDeckX = largeur*0.8
 let compteurDeCartesDansLaTimeline = 0
 let tabAleatoire = []
 let tabCartes = []
+let tabCartesDanslaTimeline = []
 // Création d'une variable conservant le nombre de carte piochée, autrement
 //dit, la position actuelle dans "tabAleatoire".
 let compteurDeCartesPiochees = 0
@@ -129,60 +130,77 @@ onMouseRelease(() => {
 		if(curDraggin.pos.y > 350){
 
 
-
+console.log("curDraggin", curDraggin)
 
 // si c'est la première carte que l'on pose
 			if(compteurDeCartesDansLaTimeline == 0){
 				curDraggin.pos.y = 468;
-				curDraggin.pos.x = (largeurTimeline+curDraggin.width)/2;
-				console.log("12 : ", tabCartes[0].annee)
+				curDraggin.pos.x = largeur/2;
+				tabCartesDanslaTimeline.push(curDraggin)
 			}
 			else{
 // si c'est la deuxième carte que l'on pose
 			if(compteurDeCartesDansLaTimeline == 1){
 				if(curDraggin.annee>=tabCartes[0].annee && curDraggin.pos.x>tabCartes[0].pos.x){
+					tabCartesDanslaTimeline.push(curDraggin)
+					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
-					curDraggin.pos.x = (largeurTimeline+curDraggin.width)/2 +75;
-					tabCartes[0].pos.x = (largeurTimeline+curDraggin.width)/2 -75;
-					console.log("Annee :", ...tabCartes.map(carte => carte.annee))
+					for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
+						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -75 +(i*150);
+						console.log ("pos i : ", tabCartesDanslaTimeline[i].pos.x)
+					}
+					console.log("dans la TL",tabCartesDanslaTimeline)
+
 				}
 				else if(curDraggin.annee<=tabCartes[0].annee && curDraggin.pos.x<tabCartes[0].pos.x){
+					tabCartesDanslaTimeline.push(curDraggin)
+					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
-					curDraggin.pos.x = (largeurTimeline+curDraggin.width)/2 -75;
-					tabCartes[0].pos.x = (largeurTimeline+curDraggin.width)/2 +75;
-					console.log("Annee :", ...tabCartes.map(carte => carte.annee))
+					for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
+						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -75 + (i*150);
+						console.log ("pos i : ", tabCartesDanslaTimeline[i].pos.x)
+					}
+					console.log("dans la TL",tabCartesDanslaTimeline)
+
 				}
 // Pour l'instant c'est score -10 (juste pour avoir un retour visuel) mais il faudra faire un game-over ou un systeme de vies
 				else{score-=10}
 			}
 			else if(compteurDeCartesDansLaTimeline == 2){
 				if(curDraggin.annee>=tabCartes[0].annee && curDraggin.annee<=tabCartes[1].annee && curDraggin.pos.x>tabCartes[0].pos.x && curDraggin.pos.x<tabCartes[1].pos.x){
+					tabCartesDanslaTimeline.push(curDraggin)
+					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
-					curDraggin.pos.x = (largeurTimeline+curDraggin.width)/2;
-					tabCartes[0].pos.x = (largeurTimeline+curDraggin.width)/2 -150;
-					tabCartes[1].pos.x = (largeurTimeline+curDraggin.width)/2 +150;
-					console.log("Annee :", ...tabCartes.map(carte => carte.annee))
+					for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
+						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -150 + (i*150);
+						console.log ("pos i : ", tabCartesDanslaTimeline[i].pos.x)
+					}
 				}
 				else if(curDraggin.annee<=tabCartes[0].annee && curDraggin.pos.x<tabCartes[0].pos.x){
+					tabCartesDanslaTimeline.push(curDraggin)
+					console.log("sort", tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee))
 					curDraggin.pos.y = 468;
-					curDraggin.pos.x = (largeurTimeline+curDraggin.width)/2 -150;
-					tabCartes[0].pos.x = (largeurTimeline+curDraggin.width)/2;
-					tabCartes[1].pos.x = (largeurTimeline+curDraggin.width)/2 +150;
-					console.log("Annee :", ...tabCartes.map(carte => carte.annee))
+					for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
+						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -150 + (i*150);
+						console.log ("pos i : ", tabCartesDanslaTimeline[i].pos.x)
+					}
 				}
 				else if(curDraggin.annee>=tabCartes[1].annee && curDraggin.pos.x>tabCartes[1].pos.x){
+					tabCartesDanslaTimeline.push(curDraggin)
+					console.log("sort", tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee))
 					curDraggin.pos.y = 468;
-					curDraggin.pos.x = (largeurTimeline+curDraggin.width)/2 +150;
-					tabCartes[0].pos.x = (largeurTimeline+curDraggin.width)/2 - 150;
-					tabCartes[1].pos.x = (largeurTimeline+curDraggin.width)/2;
-					console.log("Annee :", ...tabCartes.map(carte => carte.annee))
+					for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
+						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -150 + (i*150);
+						console.log ("pos i : ", tabCartesDanslaTimeline[i].pos.x)
+					}
 				}
 
 				// Pour l'instant c'est score -10 (juste pour avoir un retour visuel) mais il faudra faire un game-over ou un systeme de vies
 				else{score-=10}
 			}
+			
 		}
-		console.log("bip")
+		console.log("tab trié : ",tabCartesDanslaTimeline)
 		tirerUneCarte();
 		score++;
 		compteurDeCartesDansLaTimeline++
