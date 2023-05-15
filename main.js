@@ -129,11 +129,7 @@ onMouseRelease(() => {
 // et si la pos en Y est dans la timeline
 		if(curDraggin.pos.y > 350){
 
-
 console.log("curDraggin", curDraggin)
-
-
-
 
 			if(compteurDeCartesDansLaTimeline == 0){
 				curDraggin.pos.y = 468;
@@ -142,7 +138,7 @@ console.log("curDraggin", curDraggin)
 			}
 			else{
 			if(compteurDeCartesDansLaTimeline == 1){
-				if(curDraggin.annee>=tabCartes[0].annee && curDraggin.pos.x>tabCartes[0].pos.x){
+				if(curDraggin.annee>=tabCartesDanslaTimeline[0].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[0].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -151,7 +147,7 @@ console.log("curDraggin", curDraggin)
 					}
 
 				}
-				else if(curDraggin.annee<=tabCartes[0].annee && curDraggin.pos.x<tabCartes[0].pos.x){
+				else if(curDraggin.annee<=tabCartesDanslaTimeline[0].annee && curDraggin.pos.x<=tabCartesDanslaTimeline[0].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -160,10 +156,10 @@ console.log("curDraggin", curDraggin)
 					}
 
 				}
-				else{ gameOver()}
+				else{gameOver()}
 			}
 			else if(compteurDeCartesDansLaTimeline == 2){
-				if(curDraggin.annee>=tabCartes[0].annee && curDraggin.annee<=tabCartes[1].annee && curDraggin.pos.x>tabCartes[0].pos.x && curDraggin.pos.x<tabCartes[1].pos.x){
+				if(curDraggin.annee>=tabCartesDanslaTimeline[0].annee && curDraggin.annee<=tabCartesDanslaTimeline[1].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[0].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[1].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -171,7 +167,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee<=tabCartes[0].annee && curDraggin.pos.x<tabCartes[0].pos.x){
+				else if(curDraggin.annee<=tabCartesDanslaTimeline[0].annee && curDraggin.pos.x<=tabCartesDanslaTimeline[0].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -179,7 +175,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee>=tabCartes[1].annee && curDraggin.pos.x>tabCartes[1].pos.x){
+				else if(curDraggin.annee>=tabCartesDanslaTimeline[1].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[1].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -188,10 +184,10 @@ console.log("curDraggin", curDraggin)
 					}
 				}
 
-				else{ gameOver()}
+				else{gameOver()}
 			}
 			else if(compteurDeCartesDansLaTimeline == 3){
-				if(curDraggin.annee>=tabCartes[0].annee && curDraggin.annee<=tabCartes[1].annee && curDraggin.pos.x>tabCartes[0].pos.x && curDraggin.pos.x<tabCartes[1].pos.x){
+				if(curDraggin.annee>=tabCartesDanslaTimeline[0].annee && curDraggin.annee<=tabCartesDanslaTimeline[1].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[0].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[1].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -199,7 +195,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee>=tabCartes[1].annee && curDraggin.annee<=tabCartes[2].annee && curDraggin.pos.x>tabCartes[1].pos.x && curDraggin.pos.x<tabCartes[2].pos.x){
+				else if(curDraggin.annee>=tabCartesDanslaTimeline[1].annee && curDraggin.annee<=tabCartesDanslaTimeline[2].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[1].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[2].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -207,7 +203,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee<=tabCartes[0].annee && curDraggin.pos.x<tabCartes[0].pos.x){
+				else if(curDraggin.annee<=tabCartesDanslaTimeline[0].annee && curDraggin.pos.x<=tabCartesDanslaTimeline[0].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -215,7 +211,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee>=tabCartes[2].annee && curDraggin.pos.x>tabCartes[2].pos.x){
+				else if(curDraggin.annee>=tabCartesDanslaTimeline[2].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[2].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -224,13 +220,10 @@ console.log("curDraggin", curDraggin)
 					}
 				}
 
-				else{
-					shake(60)
-					score-=10
-				}
+				else{gameOver()}
 			}
 			else if(compteurDeCartesDansLaTimeline == 4){
-				if(curDraggin.annee>=tabCartes[0].annee && curDraggin.annee<=tabCartes[1].annee && curDraggin.pos.x>tabCartes[0].pos.x && curDraggin.pos.x<tabCartes[1].pos.x){
+				if(curDraggin.annee>=tabCartesDanslaTimeline[0].annee && curDraggin.annee<=tabCartesDanslaTimeline[1].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[0].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[1].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -238,7 +231,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee>=tabCartes[1].annee && curDraggin.annee<=tabCartes[2].annee && curDraggin.pos.x>tabCartes[1].pos.x && curDraggin.pos.x<tabCartes[2].pos.x){
+				else if(curDraggin.annee>=tabCartesDanslaTimeline[1].annee && curDraggin.annee<=tabCartesDanslaTimeline[2].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[1].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[2].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -246,7 +239,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee>=tabCartes[2].annee && curDraggin.annee<=tabCartes[3].annee && curDraggin.pos.x>tabCartes[2].pos.x && curDraggin.pos.x<tabCartes[3].pos.x){
+					else if(curDraggin.annee>=tabCartesDanslaTimeline[2].annee && curDraggin.annee<=tabCartesDanslaTimeline[3].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[2].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[3].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -254,7 +247,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee<=tabCartes[0].annee && curDraggin.pos.x<tabCartes[0].pos.x){
+				else if(curDraggin.annee<=tabCartesDanslaTimeline[0].annee && curDraggin.pos.x<=tabCartesDanslaTimeline[0].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -262,7 +255,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee>=tabCartes[3].annee && curDraggin.pos.x>tabCartes[3].pos.x){
+				else if(curDraggin.annee>=tabCartesDanslaTimeline[3].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[3].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -271,10 +264,10 @@ console.log("curDraggin", curDraggin)
 					}
 				}
 
-				else{score-=10}
+				else{gameOver()}
 			}
 			else if(compteurDeCartesDansLaTimeline == 5){
-				if(curDraggin.annee>=tabCartes[0].annee && curDraggin.annee<=tabCartes[1].annee && curDraggin.pos.x>tabCartes[0].pos.x && curDraggin.pos.x<tabCartes[1].pos.x){
+				if(curDraggin.annee>=tabCartesDanslaTimeline[0].annee && curDraggin.annee<=tabCartesDanslaTimeline[1].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[0].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[1].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -282,7 +275,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee>=tabCartes[1].annee && curDraggin.annee<=tabCartes[2].annee && curDraggin.pos.x>tabCartes[1].pos.x && curDraggin.pos.x<tabCartes[2].pos.x){
+				else if(curDraggin.annee>=tabCartesDanslaTimeline[1].annee && curDraggin.annee<=tabCartesDanslaTimeline[2].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[1].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[2].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -290,7 +283,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee>=tabCartes[2].annee && curDraggin.annee<=tabCartes[3].annee && curDraggin.pos.x>tabCartes[2].pos.x && curDraggin.pos.x<tabCartes[3].pos.x){
+					else if(curDraggin.annee>=tabCartesDanslaTimeline[2].annee && curDraggin.annee<=tabCartesDanslaTimeline[3].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[2].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[3].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -298,7 +291,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee>=tabCartes[3].annee && curDraggin.annee<=tabCartes[4].annee && curDraggin.pos.x>tabCartes[3].pos.x && curDraggin.pos.x<tabCartes[4].pos.x){
+				else if(curDraggin.annee>=tabCartesDanslaTimeline[3].annee && curDraggin.annee<=tabCartesDanslaTimeline[4].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[3].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[4].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -306,7 +299,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee<=tabCartes[0].annee && curDraggin.pos.x<tabCartes[0].pos.x){
+				else if(curDraggin.annee<=tabCartesDanslaTimeline[0].annee && curDraggin.pos.x<=tabCartesDanslaTimeline[0].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -314,7 +307,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee>=tabCartes[4].annee && curDraggin.pos.x>tabCartes[4].pos.x){
+				else if(curDraggin.annee>=tabCartesDanslaTimeline[4].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[4].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -323,10 +316,10 @@ console.log("curDraggin", curDraggin)
 					}
 				}
 
-				else{score-=10}
+				else{gameOver()}
 			}
 			else if(compteurDeCartesDansLaTimeline == 6){
-				if(curDraggin.annee>=tabCartes[0].annee && curDraggin.annee<=tabCartes[1].annee && curDraggin.pos.x>tabCartes[0].pos.x && curDraggin.pos.x<tabCartes[1].pos.x){
+				if(curDraggin.annee>=tabCartesDanslaTimeline[0].annee && curDraggin.annee<=tabCartesDanslaTimeline[1].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[0].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[1].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -334,7 +327,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee>=tabCartes[1].annee && curDraggin.annee<=tabCartes[2].annee && curDraggin.pos.x>tabCartes[1].pos.x && curDraggin.pos.x<tabCartes[2].pos.x){
+				else if(curDraggin.annee>=tabCartesDanslaTimeline[1].annee && curDraggin.annee<=tabCartesDanslaTimeline[2].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[1].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[2].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -342,7 +335,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee>=tabCartes[2].annee && curDraggin.annee<=tabCartes[3].annee && curDraggin.pos.x>tabCartes[2].pos.x && curDraggin.pos.x<tabCartes[3].pos.x){
+					else if(curDraggin.annee>=tabCartesDanslaTimeline[2].annee && curDraggin.annee<=tabCartesDanslaTimeline[3].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[2].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[3].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -350,7 +343,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee>=tabCartes[3].annee && curDraggin.annee<=tabCartes[4].annee && curDraggin.pos.x>tabCartes[3].pos.x && curDraggin.pos.x<tabCartes[4].pos.x){
+				else if(curDraggin.annee>=tabCartesDanslaTimeline[3].annee && curDraggin.annee<=tabCartesDanslaTimeline[4].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[3].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[4].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -358,7 +351,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee>=tabCartes[4].annee && curDraggin.annee<=tabCartes[5].annee && curDraggin.pos.x>tabCartes[4].pos.x && curDraggin.pos.x<tabCartes[5].pos.x){
+				else if(curDraggin.annee>=tabCartesDanslaTimeline[4].annee && curDraggin.annee<=tabCartesDanslaTimeline[5].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[4].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[5].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -366,7 +359,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee<=tabCartes[0].annee && curDraggin.pos.x<tabCartes[0].pos.x){
+				else if(curDraggin.annee<=tabCartesDanslaTimeline[0].annee && curDraggin.pos.x<=tabCartesDanslaTimeline[0].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -374,7 +367,7 @@ console.log("curDraggin", curDraggin)
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
 				}
-				else if(curDraggin.annee>=tabCartes[5].annee && curDraggin.pos.x>tabCartes[5].pos.x){
+				else if(curDraggin.annee>=tabCartesDanslaTimeline[5].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[5].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
 					tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
 					curDraggin.pos.y = 468;
@@ -383,7 +376,7 @@ console.log("curDraggin", curDraggin)
 					}
 				}
 
-				else{score-=10}
+				else{gameOver()}
 			}
 		}
 		console.log("tab trié : ",tabCartesDanslaTimeline)
@@ -398,14 +391,20 @@ console.log("curDraggin", curDraggin)
 	}
 		setCursor("pointer")
 		curDraggin = null
-		console.log("tab cartes : ",tabCartes)
 
 })
 
 
 function gameOver () {
-	score-=10;
+	console.log("gameOVer")
+	score-=11;
 	shake(60)
+	tabCartesDanslaTimeline.push(curDraggin)
+	tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
+	curDraggin.pos.y = 468;
+	for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
+		tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
+	}
 }
 
 // Création d'un tableau de longueur "donnee.length" qui contient 
