@@ -3,7 +3,7 @@
 
 // let hauteur = window.innerHeight/1.2 ou 600 ?
 let hauteur = 600
-let largeur = hauteur*1.33
+let largeur = hauteur*2.55
 // élargir avec easter egg des formats => 1.37 puis 
 // en 1.66, 1,85 , et enfin 2,35 voir 2,55
 let score = 0
@@ -16,6 +16,7 @@ let compteurDeCartesDansLaTimeline = 0
 let tabAleatoire = []
 let tabCartes = []
 let tabCartesDanslaTimeline = []
+let valeurGameOver = false
 // Création d'une variable conservant le nombre de carte piochée, autrement
 //dit, la position actuelle dans "tabAleatoire".
 let compteurDeCartesPiochees = 0
@@ -129,7 +130,7 @@ function drag() {
 		},
 		// "update" is a lifecycle method gets called every frame the obj is in scene
 		update() {
-			if (curDraggin === this && curDraggin.class !== "set") {
+			if (curDraggin === this && curDraggin.class !== "set" && valeurGameOver == false) {
 				setCursor("grabbing")
 				this.pos = mousePos().sub(offset)
 			}
@@ -623,7 +624,10 @@ console.log("curDraggin", curDraggin)
 
 				else{gameOver()}
 			}
+			else if(compteurDeCartesDansLaTimeline == 10){
+				timelinePleine()
 		}
+	}
 		console.log("tab trié : ",tabCartesDanslaTimeline)
 		tirerUneCarte();
 		score++;
@@ -655,7 +659,8 @@ function gameOver () {
 	for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
 		tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 	}
-
+	afficherDates()
+	valeurGameOver = true
 }
 
 // Création d'un tableau de longueur "donnee.length" qui contient 
@@ -684,7 +689,8 @@ function tirerUneCarte(){
 		area(),
 		anchor("center"),
 		z(2),
-		drag()
+		drag(),
+		"NouvelleCarte"
 	])
 	NouvelleCarte.annee = derniereCartePiochee.annee
 	tabCartes.push(NouvelleCarte)
@@ -692,6 +698,20 @@ function tirerUneCarte(){
 }
 tirerUneCarte()
 
+function afficherDates(){
+	for(let i =0; i<tabCartesDanslaTimeline.length;i++){
+	let datesOnScreen = add([
+		text(tabCartesDanslaTimeline[i].annee, {
+			font: "arial",
+		}),
+		pos(tabCartesDanslaTimeline[i].pos.x, 335),
+		anchor("center"),
+		z(50),
+		color(255, 255, 255),
+		"datesOnScreen"
+	]);
+}
+}
 
 
 const timeline = add([
@@ -769,11 +789,10 @@ const reset = add([
 	z(1),
 	"reset",
 ])
+onClick("reset", (reset) => recommencerLeJeu())
 
-onClick("reset", (reset) => clearArray())
 
-
-function clearArray() {
+function recommencerLeJeu() {
 
 	for (let i = 0; i<tabCartesDanslaTimeline.length; i++){
 		destroy(tabCartesDanslaTimeline[i])
@@ -783,7 +802,23 @@ function clearArray() {
 	}
 	compteurDeCartesDansLaTimeline = 0
 	score = 0
+	destroyAll("datesOnScreen")
+	valeurGameOver = false
   }
+
+  function timelinePleine() {
+
+	for (let i = 0; i<tabCartesDanslaTimeline.length; i++){
+		destroy(tabCartesDanslaTimeline[i])
+	}
+	while (tabCartesDanslaTimeline.length > 0) {
+	  tabCartesDanslaTimeline.pop();
+	}
+	compteurDeCartesDansLaTimeline = 1
+	curDraggin.pos.y = 468;
+	curDraggin.pos.x = largeur/2;
+	tabCartesDanslaTimeline.push(curDraggin)
+}
 
 //fermeture de d3
 })
