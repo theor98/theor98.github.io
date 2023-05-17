@@ -818,6 +818,7 @@ function recommencerLeJeu() {
 	curDraggin.pos.y = 468;
 	curDraggin.pos.x = largeur/2;
 	tabCartesDanslaTimeline.push(curDraggin)
+	compteurDeCartesDansLaTimeline = 0
 }
 
 //fermeture de d3
