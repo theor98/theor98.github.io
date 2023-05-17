@@ -3,7 +3,7 @@
 
 // let hauteur = window.innerHeight/1.2 ou 600 ?
 let hauteur = 600
-let largeur = hauteur*1.85
+let largeur = hauteur*2.55
 // élargir avec easter egg des formats => 1.37 puis 
 // en 1.66, 1,85 , et enfin 2,35 voir 2,55
 let score = 0
@@ -40,8 +40,6 @@ function chargerLesSprites(){
 	loadSprite("card back", "/sprites/autres/card-back.png")
 	// affiches
 	loadSprite("Broken Blossoms", "/sprites/affiches/Broken_blossoms_poster200.png")
-	loadSprite("Les Quatre Cents Coups", "/sprites/affiches/Quatre_coups.jpg")
-	loadSprite("A bout de souffle", "/sprites/affiches/a-bout-de-souffle-godard.jpg")
 	loadSprite("L'arroseur arrosé", "sprites/affiches/arroseurArrose1895.jpg")
 	loadSprite("Le Voyage dans la Lune","sprites/affiches/lune1902.jpg")
 	loadSprite("The Great Train Robbery","sprites/affiches/robbery1903.jpg")
@@ -85,6 +83,23 @@ function chargerLesSprites(){
 	loadSprite("Une si jolie petite plage","sprites/affiches/Petiteplage1949 (1).jpg")
 	loadSprite("Umberto D.","sprites/affiches/UmbertoD (1).jpg")
 	loadSprite("Les Contes de la lune vague après la pluie","sprites/affiches/contesDeLaLuneVague (1).jpg")
+	loadSprite("All That Heaven Allows","sprites/affiches/All_That_Heaven_Allows_(1955_poster) (1).jpg")
+	loadSprite("Razzia sur la chnouf","sprites/affiches/Razzia-sur-la-chnouf (1).jpg")
+	loadSprite("Et Dieu… créa la femme","sprites/affiches/And_God_Created_Woman_1956_poster (1).jpg")
+	loadSprite("Forbidden Planet","sprites/affiches/forbbidenPlanet (1).jpg")
+	loadSprite("The Searchers","sprites/affiches/SearchersPoster-BillGold (1).jpg")
+	loadSprite("Ascenseur pour l'échafaud","sprites/affiches/Ascenseur_echafaud (1).jpg")
+	loadSprite("Le notti di Cabiria","sprites/affiches/Nights_of_Cabiria_Poster (1).jpg")
+	loadSprite("Lettres de Sibérie","sprites/affiches/lettresdeSiberie.jpg")
+	loadSprite("Le Beau Serge","sprites/affiches/lebeauserge1958 (1).jpg")
+	loadSprite("Les Raquetteurs","sprites/affiches/Les_raquetteurs (1).jpg")
+	loadSprite("Cendres et diamants","sprites/affiches/Ashes-and-diamonds-polish-poster (1).jpg")
+	loadSprite("Vertigo","sprites/affiches/vertigo1958 (1).jpg")
+	loadSprite("Hiroshima mon amour","sprites/affiches/1959_hiroshima_mon_amour_censure (1).jpg")
+	loadSprite("Les Quatre Cents Coups", "/sprites/affiches/Quatre_coups.jpg")
+	loadSprite("Rio Bravo","sprites/affiches/Rio_Bravo_(1959_poster) (1).jpg")
+	loadSprite("A bout de souffle", "/sprites/affiches/a-bout-de-souffle-godard.jpg")
+	loadSprite("L'avventura","sprites/affiches/L'avventuraSmall.jpg")
 }
 chargerLesSprites()
 
@@ -611,7 +626,6 @@ console.log("curDraggin", curDraggin)
 		console.log("tab trié : ",tabCartesDanslaTimeline)
 		tirerUneCarte();
 		score++;
-		setData("highscore",score)
 		compteurDeCartesDansLaTimeline++
 		curDraggin.class = "set"
 
