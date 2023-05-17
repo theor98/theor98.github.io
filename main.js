@@ -3,15 +3,15 @@
 
 // let hauteur = window.innerHeight/1.2 ou 600 ?
 let hauteur = 600
-let largeur = hauteur*2.55
+let largeur = hauteur*1.33
 // élargir avec easter egg des formats => 1.37 puis 
 // en 1.66, 1,85 , et enfin 2,35 voir 2,55
 let score = 0
 let highscore = 0
 let hauteurTimeline = 220
-let largeurTimeline = largeur-60
+let largeurTimeline = largeur-30
 let curDraggin = null
-let positionDeckX = largeur*0.8
+let positionDeckX = largeur*0.75
 let compteurDeCartesDansLaTimeline = 0
 let tabAleatoire = []
 let tabCartes = []
@@ -38,6 +38,7 @@ kaboom({
 function chargerLesSprites(){
 	// autres
 	loadSprite("card back", "/sprites/autres/card-back.png")
+	loadSprite("reset", "sprites/autres/arrow_reset.png")
 	// affiches
 	loadSprite("Broken Blossoms", "/sprites/affiches/Broken_blossoms_poster200.png")
 	loadSprite("L'arroseur arrosé", "sprites/affiches/arroseurArrose1895.jpg")
@@ -642,7 +643,10 @@ console.log("curDraggin", curDraggin)
 
 function gameOver () {
 	console.log("gameOVer")
-	setData("highscore",score)
+	if (score>highscore){
+		highscore = score
+		setData("highscore", highscore)
+	}
 	score-=1;
 	shake(60)
 	tabCartesDanslaTimeline.push(curDraggin)
@@ -651,6 +655,7 @@ function gameOver () {
 	for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
 		tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 	}
+
 }
 
 // Création d'un tableau de longueur "donnee.length" qui contient 
@@ -755,6 +760,30 @@ const deck = add([
 	z(1),
 	"deck",
 ])
+const reset = add([
+	sprite("reset"),
+	pos(largeur-70,hauteur/9),
+	anchor("center"),
+	scale(0.15),
+	area(),
+	z(1),
+	"reset",
+])
+
+onClick("reset", (reset) => clearArray())
+
+
+function clearArray() {
+
+	for (let i = 0; i<tabCartesDanslaTimeline.length; i++){
+		destroy(tabCartesDanslaTimeline[i])
+	}
+	while (tabCartesDanslaTimeline.length > 0) {
+	  tabCartesDanslaTimeline.pop();
+	}
+	compteurDeCartesDansLaTimeline = 0
+	score = 0
+  }
 
 //fermeture de d3
 })
