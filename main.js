@@ -14,7 +14,6 @@ let curDraggin = null
 let positionDeckX = largeur*0.75
 let compteurDeCartesDansLaTimeline = 0
 let tabAleatoire = []
-let tabCartes = []
 let tabCartesDanslaTimeline = []
 let valeurGameOver = false
 // Création d'une variable conservant le nombre de carte piochée, autrement
@@ -693,7 +692,6 @@ function tirerUneCarte(){
 		"NouvelleCarte"
 	])
 	NouvelleCarte.annee = derniereCartePiochee.annee
-	tabCartes.push(NouvelleCarte)
     return derniereCartePiochee;
 }
 tirerUneCarte()
