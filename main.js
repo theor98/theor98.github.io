@@ -36,6 +36,9 @@ kaboom({
     canvas: document.querySelector("#monCanvas"),
 })
 function chargerLesSprites(){
+	//sons
+	loadSound("sonGameOver","sounds/sonGameOver.wav")
+	loadSound("sonVictoire","sounds/sonVictoire.mp3")
 	// autres
 	loadSprite("card back", "/sprites/autres/card-back.png")
 	loadSprite("reset", "sprites/autres/arrow_reset.png")
@@ -103,8 +106,6 @@ function chargerLesSprites(){
 	loadSprite("L'avventura","sprites/affiches/L'avventuraSmall.jpg")
 }
 chargerLesSprites()
-
-
 
 function drag() {
 	// The displacement between object pos and mouse pos
@@ -547,6 +548,7 @@ console.log("curDraggin", curDraggin)
 					for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
+					timelinePleine()
 				}
 				else if(curDraggin.annee>=tabCartesDanslaTimeline[1].annee && curDraggin.annee<=tabCartesDanslaTimeline[2].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[1].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[2].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
@@ -555,6 +557,7 @@ console.log("curDraggin", curDraggin)
 					for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
+					timelinePleine()
 				}
 					else if(curDraggin.annee>=tabCartesDanslaTimeline[2].annee && curDraggin.annee<=tabCartesDanslaTimeline[3].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[2].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[3].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
@@ -563,6 +566,7 @@ console.log("curDraggin", curDraggin)
 					for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
+					timelinePleine()
 				}
 				else if(curDraggin.annee>=tabCartesDanslaTimeline[3].annee && curDraggin.annee<=tabCartesDanslaTimeline[4].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[3].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[4].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
@@ -571,6 +575,7 @@ console.log("curDraggin", curDraggin)
 					for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
+					timelinePleine()
 				}
 				else if(curDraggin.annee>=tabCartesDanslaTimeline[4].annee && curDraggin.annee<=tabCartesDanslaTimeline[5].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[4].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[5].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
@@ -579,6 +584,7 @@ console.log("curDraggin", curDraggin)
 					for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
+					timelinePleine()
 				}
 				else if(curDraggin.annee>=tabCartesDanslaTimeline[5].annee && curDraggin.annee<=tabCartesDanslaTimeline[6].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[5].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[6].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
@@ -587,6 +593,7 @@ console.log("curDraggin", curDraggin)
 					for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
+					timelinePleine()
 				}
 				else if(curDraggin.annee>=tabCartesDanslaTimeline[6].annee && curDraggin.annee<=tabCartesDanslaTimeline[7].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[6].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[7].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
@@ -595,6 +602,7 @@ console.log("curDraggin", curDraggin)
 					for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
+					timelinePleine()
 				}
 				else if(curDraggin.annee>=tabCartesDanslaTimeline[7].annee && curDraggin.annee<=tabCartesDanslaTimeline[8].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[7].pos.x && curDraggin.pos.x<=tabCartesDanslaTimeline[8].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
@@ -603,6 +611,7 @@ console.log("curDraggin", curDraggin)
 					for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
+					timelinePleine()
 				}
 				else if(curDraggin.annee<=tabCartesDanslaTimeline[0].annee && curDraggin.pos.x<=tabCartesDanslaTimeline[0].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
@@ -611,6 +620,7 @@ console.log("curDraggin", curDraggin)
 					for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
+					timelinePleine()
 				}
 				else if(curDraggin.annee>=tabCartesDanslaTimeline[8].annee && curDraggin.pos.x>=tabCartesDanslaTimeline[8].pos.x){
 					tabCartesDanslaTimeline.push(curDraggin)
@@ -619,19 +629,18 @@ console.log("curDraggin", curDraggin)
 					for(let i = 0; i<=compteurDeCartesDansLaTimeline; i++){
 						tabCartesDanslaTimeline[i].pos.x = (largeur/2) -(compteurDeCartesDansLaTimeline*75) + (i*150);
 					}
+					timelinePleine()
 				}
 
 				else{gameOver()}
 			}
-			else if(compteurDeCartesDansLaTimeline == 10){
-				timelinePleine()
-		}
 	}
 		console.log("tab trié : ",tabCartesDanslaTimeline)
 		tirerUneCarte();
 		score++;
 		compteurDeCartesDansLaTimeline++
 		curDraggin.class = "set"
+		tutoriel()
 
 
 }
@@ -645,7 +654,7 @@ console.log("curDraggin", curDraggin)
 
 
 function gameOver () {
-	console.log("gameOVer")
+	play("sonGameOver",{ volume : 0.1})
 	if (score>highscore){
 		highscore = score
 		setData("highscore", highscore)
@@ -660,6 +669,14 @@ function gameOver () {
 	}
 	afficherDates()
 	valeurGameOver = true
+	const cercleReset = add([
+		pos(largeur-70,hauteur/9),
+		circle(50),
+		z(5),
+		color(255,255,255),
+		anchor("center"),
+		"cercleReset",
+]);
 }
 
 // Création d'un tableau de longueur "donnee.length" qui contient 
@@ -673,7 +690,45 @@ function genererTabAleatoire (max){
 }
 genererTabAleatoire(donnees.length)
 
+function recommencerLeJeu() {
 
+	for (let i = 0; i<tabCartesDanslaTimeline.length; i++){
+		destroy(tabCartesDanslaTimeline[i])
+	}
+	while (tabCartesDanslaTimeline.length > 0) {
+	  tabCartesDanslaTimeline.pop();
+	}
+	compteurDeCartesDansLaTimeline = 0
+	score = 0
+	destroyAll("datesOnScreen")
+	valeurGameOver = false
+	destroyAll("texte1")
+	destroyAll("texte2")
+	destroyAll("cercleReset")
+	tutoriel()
+  }
+
+  function timelinePleine() {
+	play("sonVictoire",{ volume : 0.4})
+		destroy(tabCartesDanslaTimeline[9])
+		destroy(tabCartesDanslaTimeline[8])
+		destroy(tabCartesDanslaTimeline[7])
+		destroy(tabCartesDanslaTimeline[6])
+		destroy(tabCartesDanslaTimeline[5])
+		destroy(tabCartesDanslaTimeline[3])
+		destroy(tabCartesDanslaTimeline[2])
+		destroy(tabCartesDanslaTimeline[1])
+		destroy(tabCartesDanslaTimeline[0])
+// garde l'élément tabCartesDanslaTimeline[4]
+	tabCartesDanslaTimeline.pop()
+	while (tabCartesDanslaTimeline.length > 1) {
+	  tabCartesDanslaTimeline.pop();
+	  tabCartesDanslaTimeline.shift();
+	}
+	tabCartesDanslaTimeline[0].pos.y = 468
+	tabCartesDanslaTimeline[0].pos.x = largeur/2
+	compteurDeCartesDansLaTimeline = 0
+}
 
 
 // Création d'une fonction "piochant" une carte parmis les donnees
@@ -711,6 +766,37 @@ function afficherDates(){
 }
 }
 
+function tutoriel(){
+	if(score<1){
+		const texte0 = add([
+			text("Glissez l'affiche dans la frise chronologique", {
+				font: "arial",
+			}),
+			pos(largeur/2.3, 225),
+			anchor("center"),
+			z(50),
+			color(255, 255, 255),
+			"texte0"
+		]);
+}
+	else if(score==1){
+		destroyAll("texte0")
+		const texte1 = add([
+			text("<= Plus vieux ? ou plus récent ? =>", {
+				font: "arial",
+			}),
+			pos(largeur/2, 225),
+			anchor("center"),
+			z(50),
+			color(255, 255, 255),
+			"texte1"
+		]);
+	}
+	else{
+		destroyAll("texte1")
+	}
+}
+tutoriel()
 
 const timeline = add([
     pos(largeur*0.5, hauteur*0.78),
@@ -780,44 +866,18 @@ const deck = add([
 ])
 const reset = add([
 	sprite("reset"),
+	color(0, 65, 255),
 	pos(largeur-70,hauteur/9),
 	anchor("center"),
 	scale(0.15),
 	area(),
-	z(1),
+	z(10),
 	"reset",
 ])
 onClick("reset", (reset) => recommencerLeJeu())
 
-
-function recommencerLeJeu() {
-
-	for (let i = 0; i<tabCartesDanslaTimeline.length; i++){
-		destroy(tabCartesDanslaTimeline[i])
-	}
-	while (tabCartesDanslaTimeline.length > 0) {
-	  tabCartesDanslaTimeline.pop();
-	}
-	compteurDeCartesDansLaTimeline = 0
-	score = 0
-	destroyAll("datesOnScreen")
-	valeurGameOver = false
-  }
-
-  function timelinePleine() {
-
-	for (let i = 0; i<tabCartesDanslaTimeline.length; i++){
-		destroy(tabCartesDanslaTimeline[i])
-	}
-	while (tabCartesDanslaTimeline.length > 0) {
-	  tabCartesDanslaTimeline.pop();
-	}
-	compteurDeCartesDansLaTimeline = 1
-	curDraggin.pos.y = 468;
-	curDraggin.pos.x = largeur/2;
-	tabCartesDanslaTimeline.push(curDraggin)
-	compteurDeCartesDansLaTimeline = 0
-}
+//fermeture de la scene "game"
+//})
 
 //fermeture de d3
 })
