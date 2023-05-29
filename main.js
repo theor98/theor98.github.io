@@ -104,6 +104,23 @@ function chargerLesSprites(){
 	loadSprite("Rio Bravo","sprites/affiches/Rio_Bravo_(1959_poster) (1).jpg")
 	loadSprite("A bout de souffle", "/sprites/affiches/a-bout-de-souffle-godard.jpg")
 	loadSprite("L'avventura","sprites/affiches/L'avventuraSmall.jpg")
+	loadSprite("Chronique d'un été","sprites/affiches/chroniqueDUnEte.jpg")
+	loadSprite("L'Année dernière à Marienbad","sprites/affiches/Marienbadposter.jpg")
+	loadSprite("La Nuit des femmes","sprites/affiches/la_nuit_des_femmes_affiche.jpg")
+	loadSprite("Yojimbo","sprites/affiches/yojimbo.jpg")
+	loadSprite("Le Couteau dans l'eau","sprites/affiches/couteaudansLeau.jpg")
+	loadSprite("Le Joli mai Chris Marker","sprites/affiches/leJoliMai.jpg")
+	loadSprite("Trains étroitement surveillés","sprites/affiches/trains-etroitement-surveilles-120x160ok.jpg")
+	loadSprite("Belle de Jour","sprites/affiches/Belle_de_jour_poster.jpg")
+	loadSprite("Bonnie & Clyde","sprites/affiches/bonnieClyde.jpg")
+	loadSprite("Au feu les pompiers !","sprites/affiches/au_feu_les_pompiers.jpg")
+	loadSprite("Who's That Knocking at My Door","sprites/affiches/whosThatKnocking.jpg")
+	loadSprite("2001 : A Space Odyssey","sprites/affiches/2001_A_Space_Odyssey_(1968) (1).png")
+	loadSprite("American Graffiti","sprites/affiches/American_graffiti_ver1.jpg")
+	loadSprite("Angst essen Seele auf","sprites/affiches/Alifeareats.jpg")
+	loadSprite("The Conversation","sprites/affiches/theConversation.jpg")
+	loadSprite("Obsession","sprites/affiches/Obsesson_1976_poster.jpg")
+	loadSprite("Mon Oncle d'Amérique","sprites/affiches/monOncledAmerique.jpg")
 }
 chargerLesSprites()
 
@@ -659,7 +676,7 @@ function gameOver () {
 		highscore = score
 		setData("highscore", highscore)
 	}
-	score-=1;
+	score--;
 	shake(60)
 	tabCartesDanslaTimeline.push(curDraggin)
 	tabCartesDanslaTimeline.sort((a, b) => a.annee - b.annee)
@@ -704,21 +721,18 @@ function recommencerLeJeu() {
 	valeurGameOver = false
 	destroyAll("texte1")
 	destroyAll("texte2")
+	destroyAll("texte0")
 	destroyAll("cercleReset")
 	tutoriel()
   }
 
   function timelinePleine() {
 	play("sonVictoire",{ volume : 0.4})
-		destroy(tabCartesDanslaTimeline[9])
-		destroy(tabCartesDanslaTimeline[8])
-		destroy(tabCartesDanslaTimeline[7])
-		destroy(tabCartesDanslaTimeline[6])
-		destroy(tabCartesDanslaTimeline[5])
-		destroy(tabCartesDanslaTimeline[3])
-		destroy(tabCartesDanslaTimeline[2])
-		destroy(tabCartesDanslaTimeline[1])
-		destroy(tabCartesDanslaTimeline[0])
+		for (i = 0; i < tabCartesDanslaTimeline.length; i++) {
+			if (i != 4) {
+				destroy(tabCartesDanslaTimeline[i])
+			}
+		}
 // garde l'élément tabCartesDanslaTimeline[4]
 	tabCartesDanslaTimeline.pop()
 	while (tabCartesDanslaTimeline.length > 1) {
@@ -744,7 +758,7 @@ function tirerUneCarte(){
 		anchor("center"),
 		z(2),
 		drag(),
-		"NouvelleCarte"
+		"NouvelleCarte",
 	])
 	NouvelleCarte.annee = derniereCartePiochee.annee
     return derniereCartePiochee;
@@ -767,7 +781,7 @@ function afficherDates(){
 }
 
 function tutoriel(){
-	if(score<1){
+	if(score==0){
 		const texte0 = add([
 			text("Glissez l'affiche dans la frise chronologique", {
 				font: "arial",
@@ -792,11 +806,27 @@ function tutoriel(){
 			"texte1"
 		]);
 	}
-	else{
+	else if(score==2){
 		destroyAll("texte1")
+		const texte1 = add([
+			text("Bravo ! Et maintenant ?", {
+				font: "arial",
+			}),
+			pos(largeur/2, 225),
+			anchor("center"),
+			z(50),
+			color(255, 255, 255),
+			"texte2"
+		]);
+	}
+	else{
+		destroyAll("texte2")
 	}
 }
 tutoriel()
+
+
+
 
 const timeline = add([
     pos(largeur*0.5, hauteur*0.78),
