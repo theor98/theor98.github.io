@@ -121,6 +121,15 @@ function chargerLesSprites(){
 	loadSprite("The Conversation","sprites/affiches/theConversation.jpg")
 	loadSprite("Obsession","sprites/affiches/Obsesson_1976_poster.jpg")
 	loadSprite("Mon Oncle d'Amérique","sprites/affiches/monOncledAmerique.jpg")
+	loadSprite("Charles mort ou vif","sprites/affiches/affiche-AV-charlesmortouvif-rc (1).jpg")
+	loadSprite("Scène de chasse en Bavière","sprites/affiches/scenesDeChasse (1) (1).jpg")
+	loadSprite("La Salamandre","sprites/affiches/LA-SALAMANDRE-afficherc2.jpg")
+	loadSprite("Touch of Zen","sprites/affiches/touchofzen (1).jpg")
+	loadSprite("Tout va bien","sprites/affiches/Toutvabien.jpg")
+	loadSprite("India Song","sprites/affiches/India_Song.jpg")
+	loadSprite("Jonas qui aura 25 ans en l'an 2000","sprites/affiches/Jonah_Who_Will_Be_25_in_the_Year_2000.jpg")
+	loadSprite("Die Ehe der Maria Braun","sprites/affiches/Original-poster-marriage-of-maria-braun.jpg")
+	loadSprite("Die Sehnsucht der Veronika Voss","sprites/affiches/Veronika_Voss'un_Tutkusu_1982_Fassbinder.jpg")
 }
 chargerLesSprites()
 
