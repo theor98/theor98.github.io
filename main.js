@@ -696,6 +696,10 @@ console.log("curDraggin", curDraggin)
 
 function gameOver () {
 	play("sonGameOver",{ volume : 0.1})
+	destroyAll("texte0")
+	destroyAll("texte1")
+	destroyAll("texte2")
+	destroyAll("texte3")
 	if (score>highscore){
 		highscore = score
 		setData("highscore", highscore)
