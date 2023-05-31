@@ -14,6 +14,8 @@ let curDraggin = null
 let positionDeckX = largeur*0.75
 let compteurDeCartesDansLaTimeline = 0
 let tabAleatoire = []
+let tabAleatoire2 = []
+let tabAleatoire3 = []
 let tabCartesDanslaTimeline = []
 let valeurGameOver = false
 // Création d'une variable conservant le nombre de carte piochée, autrement
@@ -130,6 +132,19 @@ function chargerLesSprites(){
 	loadSprite("Jonas qui aura 25 ans en l'an 2000","sprites/affiches/Jonah_Who_Will_Be_25_in_the_Year_2000.jpg")
 	loadSprite("Die Ehe der Maria Braun","sprites/affiches/Original-poster-marriage-of-maria-braun.jpg")
 	loadSprite("Die Sehnsucht der Veronika Voss","sprites/affiches/Veronika_Voss'un_Tutkusu_1982_Fassbinder.jpg")
+	loadSprite("Boat People","sprites/affiches/boatPeople (1).jpg")
+	loadSprite("Dans la Ville blanche","sprites/affiches/1982-DANS-LA-VILLE-BLANCHE.jpg")
+	loadSprite("Fallen Angels","sprites/affiches/fallen angels.jpg")
+	loadSprite("Goodbye South Goodbye","sprites/affiches/Goodbye_south_goodbye.jpg")
+	loadSprite("Hana-Bi","sprites/affiches/HanaBi_poster.jpg")
+	loadSprite("The Blade","sprites/affiches/The_Blade.jpg")
+	loadSprite("Femme fatale","sprites/affiches/Femme_fatale_poster (1).jpg")
+	loadSprite("Turning Gate","sprites/affiches/turingGate (1).jpg")
+	loadSprite("Les Herbes folles","sprites/affiches/herbesFolles.jpg")
+	loadSprite("Les Éternels","sprites/affiches/lesEternels (1).jpg")
+	loadSprite("Pierrot le fou","sprites/affiches/pierrotLeFou.jpg")
+	loadSprite("Deux ou trois choses que je sais d'elle","sprites/affiches/deux-ou-trois-choses-que-je-sais-d-elle.jpg")
+
 }
 chargerLesSprites()
 
@@ -716,6 +731,18 @@ function genererTabAleatoire (max){
 }
 genererTabAleatoire(donnees.length)
 
+function genererTabAleatoire2 (max){	
+	while(tabAleatoire2.length<max){
+		let unNombreAleatoire = Math.floor(Math.random()*max)
+		if(tabAleatoire2.includes(unNombreAleatoire)){}
+		else{tabAleatoire2.push(unNombreAleatoire)}
+	}
+}
+genererTabAleatoire2(donnees.length)
+
+
+tabAleatoire3.push(tabAleatoire.concat(tabAleatoire2))
+
 function recommencerLeJeu() {
 
 	for (let i = 0; i<tabCartesDanslaTimeline.length; i++){
@@ -728,9 +755,10 @@ function recommencerLeJeu() {
 	score = 0
 	destroyAll("datesOnScreen")
 	valeurGameOver = false
+	destroyAll("texte0")
 	destroyAll("texte1")
 	destroyAll("texte2")
-	destroyAll("texte0")
+	destroyAll("texte3")
 	destroyAll("cercleReset")
 	tutoriel()
   }
@@ -828,8 +856,21 @@ function tutoriel(){
 			"texte2"
 		]);
 	}
+	else if(score==10){
+		const texte1 = add([
+			text("Jusqu'où peux-tu aller ?", {
+				font: "arial",
+			}),
+			pos(largeur/2, 225),
+			anchor("center"),
+			z(50),
+			color(255, 255, 255),
+			"texte3"
+		]);
+	}
 	else{
 		destroyAll("texte2")
+		destroyAll("texte3")
 	}
 }
 tutoriel()
