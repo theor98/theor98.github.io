@@ -27,6 +27,7 @@ d3.csv('films.csv',function(d){
                nom : d.nomDuFilm,
                annee : +d.annee,
                realisateur : d.realisateur,
+			   imdb: d.imdb
                
             }
 }).then(donnees =>{
@@ -38,6 +39,8 @@ kaboom({
     canvas: document.querySelector("#monCanvas"),
 })
 function chargerLesSprites(){
+	//font
+	loadFont("VCR","sprites/autres/VCR_OSD_MONO_1.001.ttf")
 	//sons
 	loadSound("sonGameOver","sounds/sonGameOver.wav")
 	loadSound("sonVictoire","sounds/sonVictoire.mp3")
@@ -696,10 +699,6 @@ console.log("curDraggin", curDraggin)
 
 function gameOver () {
 	play("sonGameOver",{ volume : 0.1})
-	destroyAll("texte0")
-	destroyAll("texte1")
-	destroyAll("texte2")
-	destroyAll("texte3")
 	if (score>highscore){
 		highscore = score
 		setData("highscore", highscore)
@@ -801,6 +800,11 @@ function tirerUneCarte(){
 		drag(),
 		"NouvelleCarte",
 	])
+	NouvelleCarte.onClick(() => {
+		if (valeurGameOver) {
+			window.open(`${derniereCartePiochee.imdb}`, '_blank')
+		}
+	})
 	NouvelleCarte.annee = derniereCartePiochee.annee
     return derniereCartePiochee;
 }
@@ -810,7 +814,8 @@ function afficherDates(){
 	for(let i =0; i<tabCartesDanslaTimeline.length;i++){
 	let datesOnScreen = add([
 		text(tabCartesDanslaTimeline[i].annee, {
-			font: "arial",
+			font: "VCR",
+			size: 28,
 		}),
 		pos(tabCartesDanslaTimeline[i].pos.x, 335),
 		anchor("center"),
@@ -825,7 +830,8 @@ function tutoriel(){
 	if(score==0){
 		const texte0 = add([
 			text("Glissez l'affiche dans la frise chronologique", {
-				font: "arial",
+				font: "VCR",
+				size: 28,
 			}),
 			pos(largeur/2.3, 225),
 			anchor("center"),
@@ -838,7 +844,8 @@ function tutoriel(){
 		destroyAll("texte0")
 		const texte1 = add([
 			text("<= Plus vieux ? ou plus récent ? =>", {
-				font: "arial",
+				font: "VCR",
+				size: 28,
 			}),
 			pos(largeur/2, 225),
 			anchor("center"),
@@ -851,7 +858,8 @@ function tutoriel(){
 		destroyAll("texte1")
 		const texte1 = add([
 			text("Bravo ! Et maintenant ?", {
-				font: "arial",
+				font: "VCR",
+				size: 28,
 			}),
 			pos(largeur/2, 225),
 			anchor("center"),
@@ -863,7 +871,8 @@ function tutoriel(){
 	else if(score==10){
 		const texte1 = add([
 			text("Jusqu'où peux-tu aller ?", {
-				font: "arial",
+				font: "VCR",
+				size: 28,
 			}),
 			pos(largeur/2, 225),
 			anchor("center"),
@@ -893,7 +902,7 @@ const timeline = add([
 ]);
 const scoreTexte = add([
     text("SCORE", {
-        font: "arial",
+        font: "VCR",
     }),
     pos(20, hauteur/10),
     anchor("left"),
@@ -902,9 +911,9 @@ const scoreTexte = add([
 ]);
 const scoreNombre = add([
 text(score, {
-    font: "arial",
+    font: "VCR",
 }),
-pos(170, hauteur/10),
+pos(150, hauteur/10),
 anchor("left"),
 z(50),
 color(77, 255, 0),
@@ -916,7 +925,7 @@ color(77, 255, 0),
 ]);
 const highscoreTexte = add([
     text("HIGHSCORE", {
-        font: "arial",
+        font: "VCR",
 		size : 20
     }),
     pos(20, hauteur/10 +30),
@@ -926,7 +935,7 @@ const highscoreTexte = add([
 ]);
 const highscoreNombre = add([
 text(highscore, {
-    font: "arial",
+    font: "VCR",
 	size : 20
 }),
 pos(150, hauteur/10 +30),
