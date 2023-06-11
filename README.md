@@ -23,7 +23,7 @@ Une version avec un dataset composé de séries et de films médicaux est access
 
 ## Libraires utilisées 
 Le jeu a été développé avec la version 3000 de la librarie [Kaboom.js](https://kaboomjs.com/). Les données des films sont chargées via la librairie [d3.js](https://d3js.org/).
-
+[](https://kaboomjs.com/static/img/ka.svg)
 
 ## Contexte de développement
 Le code du jeu a été rédigé par Théo Rochat, étudiant de Master en Humanités Numériques et en Histoire et esthétique du cinéma. Ce projet a été développé dans le cadre du cours "Développement de jeu vidéo 2D" dispensé par Isaac Pante à l'Université de Lausanne.
