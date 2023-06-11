@@ -1,11 +1,6 @@
-// Travail avec Loris => (longueur à det. = nb cartes -1)*40
-//	console.log("dans la TL",tabCartesDanslaTimeline)
-
-// let hauteur = window.innerHeight/1.2 ou 600 ?
+// Définitions de plusieurs variables utilisées plusieurs fois dans le code
 let hauteur = 600
 let largeur = hauteur*2.55
-// élargir avec easter egg des formats => 1.37 puis 
-// en 1.66, 1,85 , et enfin 2,35 voir 2,55
 let score = 0
 let highscore = 0
 let hauteurTimeline = 220
@@ -18,8 +13,6 @@ let tabAleatoire2 = []
 let tabAleatoire3 = []
 let tabCartesDanslaTimeline = []
 let valeurGameOver = false
-// Création d'une variable conservant le nombre de carte piochée, autrement
-//dit, la position actuelle dans "tabAleatoire".
 let compteurDeCartesPiochees = 0
 
 d3.csv('films.csv',function(d){
@@ -721,7 +714,17 @@ function gameOver () {
 		anchor("center"),
 		"cercleReset",
 ]);
-}
+const texteGameOver = add([
+	text("Appuyez sur reset pour recommencer", {
+		font: "VCR",
+		size: 28,
+	}),
+	pos(largeur/2, 225),
+	anchor("center"),
+	z(50),
+	color(255, 255, 255),
+	"texteGameOver"
+]);}
 
 // Création d'un tableau de longueur "donnee.length" qui contient 
 // un arrangement (donc sans répétition) des nombres allant de 0 à donnee.length.
@@ -763,6 +766,7 @@ function recommencerLeJeu() {
 	destroyAll("texte2")
 	destroyAll("texte3")
 	destroyAll("cercleReset")
+	destroyAll("texteGameOver")
 	tutoriel()
   }
 
@@ -827,7 +831,8 @@ function afficherDates(){
 }
 
 function tutoriel(){
-	if(score==0){
+	if(valeurGameOver == false){
+		if(score==0){
 		const texte0 = add([
 			text("Glissez l'affiche dans la frise chronologique", {
 				font: "VCR",
@@ -885,6 +890,13 @@ function tutoriel(){
 		destroyAll("texte2")
 		destroyAll("texte3")
 	}
+}
+else{
+	destroyAll("texte0")
+	destroyAll("texte1")
+	destroyAll("texte2")
+	destroyAll("texte3")
+}
 }
 tutoriel()
 
