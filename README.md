@@ -15,9 +15,7 @@ Le jeu a été conçu pour placer jusqu'à 10 films dans la frise, une fois ce n
 
 Le jeu permet de jouer avec 99 des 101 films que les étudiant·es en première année d'Histoire et esthétique du cinéma doivent savoir identifier pour l'examen. Les deux films non inclus sont Vie et Passion de Jésus Christ (Pathé, 1902-1907) et La Naissance, la vie et la mort du Christ (Alice Guy, 1906). Ayant tous deux le même sujet et n'ayant trouvé aucune affiche ou aucun visuel ne mentionnant Alice Guy ou la firme Pathé, j'ai préféré ne pas les inclure pour ne pas créer de confusion. De plus, l'indétermination de la date de sortie de la Passion Pathé rendait son implémentation impossible.
 
-## Accès au jeu
-
-Le jeu est actuellement en ligne [ici](https://theor98.github.io/). 
+Des versions avec d'autres dataset sont tout à fait envisageable (listes thématiques, autres cours de cinéma, uniquement des séries, *etc*.)
 Une version avec un dataset composé de séries et de films médicaux est accessible [ici](https://elentyr.itch.io/histoire-du-cinma-le-jeu-mystres-de-lunil-2023).  
 
 ## Libraires utilisées 
