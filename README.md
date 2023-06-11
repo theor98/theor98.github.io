@@ -5,10 +5,16 @@ Le jeu est acessible [ici](https://theor98.github.io/)
 
 ## Descirption 
 
-une brève description (en français ou en anglais) de votre rendu et de ses fonctionnalités
+Durant le cours "Introduction à l'histoire du cinéma", donné par Alain Boillat et Pierre-Emmanuel Jaques, les étudiant·es visionnent plus de 200 séquences de films différents. Le corpus d'examen est constitué d'environ la moitié des films, soit une centaine. L'objectif de ce jeu est de permettre aux étudiant·es de vérifier leur capacité à dater correctement les films d'examen de manière ludique. Les joueur·euses doivent placer des films dans une frise chronologique relativement aux autres films déjà placés. Evidemment, plus le nombre de films déjà positionés dans la frise chronologique est grand, plus le jeu devient difficle ! 
+
+## Fonctionnalités 
+
+Le jeu a été conçu pour placer jusqu'à 10 films dans la frise, une fois ce nombre atteint, tous les films disparaissent sauf un et le jeu continue. Un score comptabilise le nombre de films correctement positionnés et un highscore sauvegardé dans le stockage web local permet de conserver une trace de sa meilleure performance. Une fois la moindre erreure comise la partie s'arrête et les dates des films sont révêlées au joueur·euses. Le bouton "reset" permet de relancer une partie. Le jeu inclut également un tutoriel pour expliquer les actions à faire dans les premiers moments de la partie.
 
 ## Dataset
 
+Le jeu permet de jouer avec 99 des 101 films que les étudiant·es en première année d'Histoire et esthètique du cinéma doivent savoir identifier pour l'examen. 
+Les deux films non inclus sont *Vie et Passion de Jésus Christ* (Pathé, 1902-1907) et *La Naissance, la vie et la mort du Christ* (Alice Guy, 1906). Ayant tout deux le même sujet et n'ayant trouvé aucune affiche ou aucun visuel ne mentionnant Alice Guy ou la firme Pathé, j'ai préféré ne pas les inclure pour ne pas créer de confusion. De plus, l'indétermination de la date de sortie de la Passion Pathé rendait son implémentation impossible. 
 
 ## Accès au jeu
 
