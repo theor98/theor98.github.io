@@ -4,6 +4,9 @@ Le jeu est acessible [ici](https://theor98.github.io/)
 
 ## Descirption 
 
+## Dataset
+
+
 ## Accès au jeu
 
 Le jeu est actuellement en ligne [ici](https://theor98.github.io/). 
@@ -15,6 +18,9 @@ Le jeu a été développé avec la version 3000 de la librarie [Kaboom.js](https
 
 ## Contexte de développement
 Le code du jeu a été rédigé par Théo Rochat, étudiant de Master en Humanités Numériques et en Histoire et esthétique du cinéma. Ce projet a été développé dans le cadre du cours "Développement de jeu vidéo 2D" dispensé par Isaac Pante à l'Université de Lausanne.
+
+
+
 
 une brève description (en français ou en anglais) de votre rendu et de ses fonctionnalités
 au moins une capture illustrant votre travail ; attention, pour la VR, un GIF est requis
