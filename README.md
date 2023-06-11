@@ -19,7 +19,7 @@ Les deux films non inclus sont *Vie et Passion de Jésus Christ* (Pathé, 1902-1
 ## Accès au jeu
 
 Le jeu est actuellement en ligne [ici](https://theor98.github.io/). 
-Une version avec un dataset composé de séries et de films médicaux est accessible [ici] (https://elentyr.itch.io/histoire-du-cinma-le-jeu-mystres-de-lunil-2023).  
+Une version avec un dataset composé de séries et de films médicaux est accessible [ici](https://elentyr.itch.io/histoire-du-cinma-le-jeu-mystres-de-lunil-2023).  
 
 ## Libraires utilisées 
 Le jeu a été développé avec la version 3000 de la librarie [Kaboom.js](https://kaboomjs.com/). Les données des films sont chargées via la librairie [d3.js](https://d3js.org/).
