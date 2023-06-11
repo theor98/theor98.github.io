@@ -9,7 +9,7 @@ Durant le cours "Introduction à l'histoire du cinéma", donné par Alain Boilla
 
 ## Fonctionnalités 
 
-Le jeu a été conçu pour placer jusqu'à 10 films dans la frise, une fois ce nombre atteint, tous les films disparaissent sauf un et le jeu continue. Un score comptabilise le nombre de films correctement positionnés et un highscore sauvegardé dans le stockage web local permet de conserver une trace de sa meilleure performance. Une fois la moindre erreure comise la partie s'arrête et les dates des films sont révêlées au joueur·euses. Le bouton "reset" permet de relancer une partie. Le jeu inclut également un tutoriel pour expliquer les actions à faire dans les premiers moments de la partie.
+Le jeu a été conçu pour placer jusqu'à 10 films dans la frise, une fois ce nombre atteint, tous les films disparaissent sauf un et le jeu continue. Un score comptabilise le nombre de films correctement positionnés et un highscore sauvegardé dans le stockage web local permet de conserver une trace de sa meilleure performance. Une fois la moindre erreure comise la partie s'arrête et les dates des films sont révêlées au joueur·euses. A ce moment, il est possible de cliquer sur les affiches des films pour ouvrir la page IMDb correspondate, ce qui permet de se renseigner facilement si les étudiant·es ne se souviennent plus du film. Le bouton "reset" permet de relancer une partie. Le jeu inclut également un tutoriel pour expliquer les actions à faire dans les premiers moments de la partie.
 
 ## Dataset
 
