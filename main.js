@@ -26,7 +26,7 @@ d3.csv('films.csv',function(d){
 }).then(donnees =>{
 
 kaboom({
-    background: [114, 75, 21],
+    background: [0, 0, 0],
     width: largeur,
     height: hauteur,
     canvas: document.querySelector("#monCanvas"),
@@ -40,6 +40,7 @@ function chargerLesSprites(){
 	// autres
 	loadSprite("card back", "/sprites/autres/card-back.png")
 	loadSprite("reset", "sprites/autres/arrow_reset.png")
+	loadSprite("twitter","sprites/autres/twitter.png")
 	// affiches
 	loadSprite("Broken Blossoms", "/sprites/affiches/Broken_blossoms_poster200.png")
 	loadSprite("L'arroseur arrosé", "sprites/affiches/arroseurArrose1895.jpg")
@@ -143,6 +144,28 @@ function chargerLesSprites(){
 
 }
 chargerLesSprites()
+
+scene("scenePrincipale", () => {
+
+
+		function idleTimer() {
+			var t;
+			window.onmousemove = resetTimer;
+			window.onmousedown = resetTimer;
+			window.onclick = resetTimer;
+			window.onscroll = resetTimer;
+		
+		
+		   function retourAcceuil() {
+				  go("EcranAcceuil")
+		   }
+		
+		   function resetTimer() {
+				clearTimeout(t);
+				t= setTimeout(retourAcceuil, 45000); 
+			}
+		}
+		idleTimer();
 
 function drag() {
 	// The displacement between object pos and mouse pos
@@ -750,6 +773,7 @@ genererTabAleatoire2(donnees.length)
 tabAleatoire3.push(tabAleatoire.concat(tabAleatoire2))
 
 function recommencerLeJeu() {
+if(valeurGameOver==true){
 
 	for (let i = 0; i<tabCartesDanslaTimeline.length; i++){
 		destroy(tabCartesDanslaTimeline[i])
@@ -769,6 +793,7 @@ function recommencerLeJeu() {
 	destroyAll("texteGameOver")
 	tutoriel()
   }
+}
 
   function timelinePleine() {
 	play("sonVictoire",{ volume : 0.4})
@@ -906,9 +931,9 @@ tutoriel()
 const timeline = add([
     pos(largeur*0.5, hauteur*0.78),
     rect(largeurTimeline, hauteurTimeline),
-    outline(4),
+    outline(4, WHITE),
 	z(0),
-    color(255,140,0),
+    color(214,23,23),
     anchor("center"),
     "timeline",
 ]);
@@ -928,7 +953,7 @@ text(score, {
 pos(150, hauteur/10),
 anchor("left"),
 z(50),
-color(77, 255, 0),
+color(255,215,0),
 {
     update() {
         this.text = score
@@ -953,7 +978,7 @@ text(highscore, {
 pos(150, hauteur/10 +30),
 anchor("left"),
 z(50),
-color(77, 255, 0),
+color(255,215,0),
 {
     update() {
         this.text = getData("highscore")
@@ -980,9 +1005,103 @@ const reset = add([
 	"reset",
 ])
 onClick("reset", (reset) => recommencerLeJeu())
+})
 
-//fermeture de la scene "game"
-//})
+scene("EcranAcceuil", () => {
+
+	let texteAcceuil = add([
+		text("Commencer le jeu", {
+			font: "VCR",
+			size : 40
+		}),
+		pos(largeur/2, hauteur*0.65),
+		anchor("center"),
+		z(50),
+		area(),
+		color(255, 255, 255),
+		"texteAcceuil"
+	]);
+	let titreJeu = add([
+		text("Chronociné", {
+			font: "VCR",
+			size : 100
+		}),
+		pos(largeur/2, hauteur*0.3),
+		anchor("center"),
+		z(50),
+		area(),
+		color(255, 255, 255),
+		"titreJeu"
+	]);
+	let texteVersion = add([
+		text("Version : Année 2022 - 2023", {
+			font: "VCR",
+			size : 20
+		}),
+		pos(180, hauteur -30),
+		anchor("center"),
+		z(50),
+		area(),
+		color(255, 255, 255),
+		"texteVersion"
+	]);
+	let texteAuteur = add([
+		text("Créé par Théo Rochat", {
+			font: "VCR",
+			size : 20
+		}),
+		pos(largeur - 170, hauteur -30),
+		anchor("center"),
+		z(50),
+		area(),
+		color(255, 255, 255),
+		"texteAuteur"
+	]);
+	onClick("texteAuteur", () => window.open("https://twitter.com/RochatTheo", '_blank'))
+	onClick("texteAcceuil", () => go("scenePrincipale"))
+	let rectTexteAcceuil = add([
+		pos(largeur/2, hauteur*0.65),
+		rect(400, 130),
+		outline(4, WHITE),
+		z(0),
+		area(),
+		color(214,23,23),
+		anchor("center"),
+		"rectTexteAcceuil",
+	]);
+	onClick("rectTexteAcceuil", () => go("scenePrincipale"))
+
+	let twitterButton = add([
+		sprite("twitter"),
+		scale(0.2),
+		pos(largeur - 30, hauteur -28),
+		area(),
+		anchor("center"),
+		z(2),
+		"twitterButton",
+	])
+	onClick("twitterButton", () => window.open("https://twitter.com/RochatTheo", '_blank'))
+	let texteAdditionel = add([
+		text("Testez vos connaissances en Histoire du Cinéma !", {
+			font: "VCR",
+			size : 17
+		}),
+		pos(largeur/2, hauteur*0.3 +70),
+		anchor("center"),
+		z(51),
+		
+		area(),
+		color(255, 215, 0),
+		"texteAuteur"
+	]);
+})
+
+
+go("EcranAcceuil");
+
+
+
 
 //fermeture de d3
 })
+
