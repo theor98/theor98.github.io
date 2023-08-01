@@ -157,6 +157,8 @@ scene("scenePrincipale", () => {
 		
 		
 		   function retourAcceuil() {
+			valeurGameOver = true
+				recommencerLeJeu()
 				  go("EcranAcceuil")
 		   }
 		
