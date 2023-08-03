@@ -33,7 +33,7 @@ kaboom({
     width: largeur,
     height: hauteur,
     canvas: document.querySelector("#monCanvas"),
-	loadingScreen: false,
+	//loadingScreen: false,
 
 })
 function chargerLesSprites(){
