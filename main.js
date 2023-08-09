@@ -1,6 +1,6 @@
 // Définitions de plusieurs variables utilisées plusieurs fois dans le code
-let hauteur = window.innerHeight*0.848
-let largeur = hauteur*2.55
+let largeur = window.innerWidth //hauteur*2.55 
+let hauteur = largeur/2.55 //window.innerHeight*0.848
 let echelleGenerale = (1/600)*hauteur
 let score = 0
 let highscore = 0
@@ -14,8 +14,8 @@ let tabCartesDanslaTimeline = []
 let valeurGameOver = false
 let compteurDeCartesPiochees = 0
 
-if(window.innerWidth<window.innerHeight*2.55*0.848){
-	alert("Aggrandissez la largeur de votre fenêtre pour profitez d'une meilleure expérience de jeu")
+if(hauteur>window.innerHeight){
+	alert("Aggrandissez la hauteur de votre fenêtre pour profitez d'une meilleure expérience de jeu, puis rechargez la page.")
 }
 
 d3.csv('films.csv',function(d){
@@ -838,11 +838,11 @@ function tirerUneCarte(){
 		// les sprite font 200px*137px
 		"NouvelleCarte",
 	])
-	NouvelleCarte.onClick(() => {
+	/* NouvelleCarte.onClick(() => {
 		if (valeurGameOver) {
 			window.open(`${derniereCartePiochee.imdb}`, '_blank')
 		}
-	})
+	}) */
 	NouvelleCarte.annee = derniereCartePiochee.annee
     return derniereCartePiochee;
 }
@@ -1107,7 +1107,6 @@ scene("EcranAcceuil", () => {
 		"texteAuteur"
 	]);
 })
-
 
 go("EcranAcceuil");
 
