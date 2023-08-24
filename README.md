@@ -1,6 +1,6 @@
 # Chronociné
 
-Le jeu est accessible [ici](https://theor98.github.io/)
+Le jeu est accessible [ici](https://theor98.github.io/) (Utiliser chrome de préférence)
 ![Capture d’écran 2023-06-11 191341](https://github.com/theor98/theor98.github.io/assets/100685679/0aab1b89-927a-4997-b879-f1d892464cbb)
 
 ## Descirption 
