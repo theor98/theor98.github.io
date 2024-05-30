@@ -134,14 +134,21 @@ function chargerLesSprites(){
 	loadSprite("Who's That Knocking at My Door","sprites/affiches/whosThatKnocking.jpg")
 	loadSprite("Bonnie & Clyde","sprites/affiches/bonnieClyde.jpg")
 	loadSprite("Taxi Driver","sprites/affiches/Taxi_Driver_(1976_film_poster) (1).jpg")
-
+	loadSprite("La Vengeance d un acteur","sprites/affiches/vengeance_acteur.jpg")
+	loadSprite("Ran","sprites/affiches/Ran-Vintage-Movie-Poster.jpg")
+	loadSprite("A Scene at the Sea","sprites/affiches/a_scene_at_the_sea.jpg")
+	loadSprite("Hana-Bi","sprites/affiches/HanaBi_poster.jpg")
+	loadSprite("Xiao Wu Artisan Pickpocket","sprites/affiches/Xiao-Wu.jpg")
+	loadSprite("Goodbye South Goodbye","sprites/affiches/Goodbye_south_goodbye.jpg")
+	loadSprite("The Host","sprites/affiches/The_host.jpg")
+	loadSprite("Ash is Purest White","sprites/affiches/lesEternels (1).jpg")
 }
 chargerLesSprites()
 
 scene("scenePrincipale", () => {
 
 
-		function idleTimer() {
+/* 		function idleTimer() {
 			var t;
 			window.onmousemove = resetTimer;
 			window.onmousedown = resetTimer;
@@ -160,7 +167,7 @@ scene("scenePrincipale", () => {
 				t= setTimeout(retourAcceuil, 45000); 
 			}
 		}
-		idleTimer();
+		idleTimer(); */
 
 function drag() {
 	// The displacement between object pos and mouse pos

@@ -15,7 +15,7 @@ Le jeu a été conçu pour placer jusqu'à 10 films dans la frise, une fois ce n
 
 ## Dataset
 
-Le jeu permet de jouer avec 99 des 101 films que les étudiant·es en première année d'Histoire et esthétique du cinéma doivent savoir identifier pour l'examen. Les deux films non inclus sont Vie et Passion de Jésus Christ (Pathé, 1902-1907) et La Naissance, la vie et la mort du Christ (Alice Guy, 1906). Ayant tous deux le même sujet et n'ayant trouvé aucune affiche ou aucun visuel ne mentionnant Alice Guy ou la firme Pathé, j'ai préféré ne pas les inclure pour ne pas créer de confusion. De plus, l'indétermination de la date de sortie de la Passion Pathé rendait son implémentation impossible.
+Le jeu permet de jouer avec 95 des 96 films que les étudiant·es en première année d'Histoire et esthétique du cinéma doivent savoir identifier pour l'examen. Le film non inclu est Vie et Passion de Jésus Christ (Pathé, 1902-1907), le film est constituté d'une juxtaposition de tableaux filmés sur différentes années rend son implémentation impossible.
 
 Des versions avec d'autres dataset sont tout à fait envisageable (listes thématiques, autres cours de cinéma, uniquement des séries, *etc*.)
 Une version avec un dataset composé de séries et de films médicaux est accessible [ici](https://elentyr.itch.io/histoire-du-cinma-le-jeu-mystres-de-lunil-2023).  
@@ -25,3 +25,7 @@ Le jeu a été développé avec la version 3000 de la librairie [Kaboom.js](http
 
 ## Contexte de développement
 Le code du jeu a été rédigé par Théo Rochat, étudiant de Master en Humanités Numériques et en Histoire et esthétique du cinéma. Ce projet a été développé dans le cadre du cours "Développement de jeu vidéo 2D" dispensé par Isaac Pante à l'Université de Lausanne.
+
+## P.S.
+Le jeu a été mis à jour pour correspondre aux films retenus pour le cours 2023-2024. 
+Le jeu a également été exposé lors des Numerik Games 2023 à Yverdon, et fera l'objet d'une communication lors de la Summer School "Transposition ludique" organisé par le GameLab UNIL-EPFl à l'Université de Lausanne. 
